@@ -10,14 +10,7 @@ export const Loading = ({
   color = '#7c3aed',
 }: LoadingProps) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#09090a',
-      }}
-    >
+    <View className="flex-1 justify-center items-center bg-background">
       <ActivityIndicator color={color} size={size} />
     </View>
   )

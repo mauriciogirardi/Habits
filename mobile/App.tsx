@@ -1,4 +1,4 @@
-import { Text, View, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 import {
   useFonts,
   Inter_700Bold,
@@ -7,6 +7,7 @@ import {
   Inter_800ExtraBold,
 } from '@expo-google-fonts/inter'
 import { Loading } from './src/components/Loading'
+import { Home } from './src/screens/Home'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,18 +17,16 @@ export default function App() {
     Inter_800ExtraBold,
   })
 
+  if (!fontsLoaded) return <Loading />
+
   return (
-    <View style={{ flex: 1 }}>
+    <>
       <StatusBar
         backgroundColor="transparent"
         translucent
         barStyle="light-content"
       />
-      {!fontsLoaded ? (
-        <Loading />
-      ) : (
-        <Text>Open up App.tsx to start working on your app!</Text>
-      )}
-    </View>
+      <Home />
+    </>
   )
 }
